@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login/flutter_login.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:teesco/core/util/log_wrapper.dart';
 
 import 'core/res/strings.dart';
@@ -24,13 +26,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(Strings.app_name),
-        ),
-        body: Center(
-          child: Text('Welcome to Teesco Application!'),
-        ),
+      home: FlutterLogin(
+        // TODOadd functions for each
+        onLogin: (data) {
+          Fluttertoast.showToast(msg: "Loggin In");
+          return Future.value("");
+        },
+        onRecoverPassword: (data) {
+          Fluttertoast.showToast(msg: "Recovering Password");
+          return Future.value("");
+        },
+        onSignup: (data) {
+          Fluttertoast.showToast(msg: "Signing Up");
+          return Future.value("");
+        },
+
+        title: "TEESCO",
+        logo: "assets/images/icon_ecell.png",
       ),
     );
   }
